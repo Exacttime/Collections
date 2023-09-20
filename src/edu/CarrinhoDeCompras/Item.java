@@ -1,4 +1,4 @@
-package edu.list2;
+package edu.CarrinhoDeCompras;
 
 public class Item {
   private String nome;

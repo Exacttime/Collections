@@ -1,4 +1,4 @@
-package edu.list;
+package edu.ListaTarefas;
 
 import java.util.ArrayList;
 import java.util.List;
