@@ -18,7 +18,7 @@ public class CatalogoLivros {
     catalogoLivros.adicionarLivro("Tudo De Bom", "Pedro", 2013);
     System.out.println(catalogoLivros.pesquisarPorAutor("Autor1"));
     System.out.println(catalogoLivros.pesquisarPorIntervaloAnos(2001, 2010));
-    System.out.println(catalogoLivros.pesquisarPorTitulo("Tudo de bom"));
+    System.out.println(catalogoLivros.pesquisarPorTitulo("Romance"));
 
   }
 
@@ -28,9 +28,11 @@ public class CatalogoLivros {
 
   public List<Livro> pesquisarPorAutor(String autor) {
     List<Livro> autoresList = new ArrayList<>();
-    for (Livro L : listaDeLivros) {
-      if (L.getAutor().equalsIgnoreCase(autor)) {
-        autoresList.add(L);
+    if (!listaDeLivros.isEmpty()) {
+      for (Livro L : listaDeLivros) {
+        if (L.getAutor().equalsIgnoreCase(autor)) {
+          autoresList.add(L);
+        }
       }
     }
     return autoresList;
@@ -38,21 +40,26 @@ public class CatalogoLivros {
 
   public List<Livro> pesquisarPorIntervaloAnos(int anoInicial, int anoFinal) {
     List<Livro> listaDeIntervalo = new ArrayList<>();
-    for (Livro L : listaDeLivros) {
-      if (L.getAnoDePublicacao() >= anoInicial && L.getAnoDePublicacao() <= anoFinal) {
-        listaDeIntervalo.add(L);
+    if (!listaDeLivros.isEmpty()) {
+      for (Livro L : listaDeLivros) {
+        if (L.getAnoDePublicacao() >= anoInicial && L.getAnoDePublicacao() <= anoFinal) {
+          listaDeIntervalo.add(L);
+        }
       }
     }
     return listaDeIntervalo;
   }
 
-  public List<Livro> pesquisarPorTitulo(String titulo) {
-    List<Livro> listaPorTitulo = new ArrayList<>();
-    for (Livro L : listaDeLivros) {
-      if (L.getTitulo().equalsIgnoreCase(titulo)) {
-        listaPorTitulo.add(L);
+  public Livro pesquisarPorTitulo(String titulo) {
+    Livro livroPorTitulo = null;
+    if (!listaDeLivros.isEmpty()) {
+      for (Livro L : listaDeLivros) {
+        if (L.getTitulo().equalsIgnoreCase(titulo)) {
+          livroPorTitulo = L;
+          break;
+        }
       }
     }
-    return listaPorTitulo;
+    return livroPorTitulo;
   }
 }
